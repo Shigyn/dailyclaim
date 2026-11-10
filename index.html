@@ -115,6 +115,7 @@ footer p+p{margin-top:6px}
       <nav class="menu">
         <a class="on" href="#faucets">TOP</a>
         <a href="#faucets">Faucets &amp; PTC</a>
+        <a href="#luxsites">LuxSites</a>
         <a href="#freesites">FreeSites</a>
         <a href="#picksites">PickSites</a>
         <a href="#how">How it works</a>
@@ -169,6 +170,7 @@ footer p+p{margin-top:6px}
 //   tag:   "TOP", "HOT", "NEW"... (optional)
 const GROUPS = [
   { id:"faucets",   title:"Faucets & PTC" },
+  { id:"luxsites",  title:"LuxSites Network" },
   { id:"freesites", title:"FreeSites Network" },
   { id:"picksites", title:"PickSites Network" },
 ];
@@ -177,6 +179,15 @@ const SITES = [
   // Faucets & PTC
   { group:"faucets", name:"VieFaucet",  site:"viefaucet.com",  coin:"V", color:"#1f7cf2", claim:"4 min",  url:"https://viefaucet.com?r=6480dff3371c056c0073e194", extras:["PTC","Offerwall","Shortlinks"], tag:"TOP" },
   { group:"faucets", name:"FireFaucet", site:"firefaucet.win", coin:"F", color:"#ff5a1f", claim:"30 min", url:"https://firefaucet.win/ref/nicocrypto", extras:["PTC","Offerwall","Auto claim"], tag:"TOP" },
+
+  // LuxSites network
+  { group:"luxsites", name:"BtcLux",   coin:"BTC",  icon:"btc",  color:"#f7931a", claim:"hour", url:"https://btclux.io/?ref=nicocrypto", tag:"TOP" },
+  { group:"luxsites", name:"TronLux",  coin:"TRX",  icon:"trx",  color:"#e5232d", claim:"hour", url:"https://tronlux.io/?ref=nicocrypto" },
+  { group:"luxsites", name:"UsdtLux",  coin:"USDT", icon:"usdt", color:"#26a17b", claim:"hour", url:"https://usdtlux.io/?ref=nicocrypto" },
+  { group:"luxsites", name:"ShibaLux", coin:"SHIB", icon:"shib", color:"#e44b17", claim:"hour", url:"https://shibalux.io/?ref=nicocrypto" },
+  { group:"luxsites", name:"XrpLux",   coin:"XRP",  icon:"xrp",  color:"#23292f", claim:"hour", url:"https://xrplux.io/?ref=nicocrypto" },
+  { group:"luxsites", name:"PepeLux",  coin:"PEPE", icon:"pepe", color:"#3d9a2b", claim:"hour", url:"https://pepelux.io/?ref=nicocrypto" },
+  { group:"luxsites", name:"BnbLux",   coin:"BNB",  icon:"bnb",  color:"#f3ba2f", claim:"hour", url:"https://bnblux.io/?ref=nicocrypto" },
 
   // FreeSites network
   { group:"freesites", name:"FreeBitcoin",  coin:"BTC",  icon:"btc",   color:"#f7931a", claim:"day", max:"$300", url:"https://freebitcoin.io/?ref=795166", tag:"TOP" },
