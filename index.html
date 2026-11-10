@@ -99,9 +99,9 @@ footer p+p{margin-top:6px}
 @media (max-width:420px){
   .grid{grid-template-columns:minmax(0,1fr)}
   .earn{padding:10px 11px}
-  .meta{gap:4px}
-  .extras{white-space:normal}
-  .chip{padding:2px 6px;font-size:9px}
+  .meta{gap:4px;flex-wrap:nowrap;overflow:hidden}
+  .chip{padding:2px 6px;font-size:9px;min-width:0;overflow:hidden;text-overflow:ellipsis}
+  .chip:first-child{flex:none}
   .cta{padding:10px 14px;font-size:11px}
 }
 </style>
