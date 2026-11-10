@@ -56,7 +56,7 @@ a{color:inherit;text-decoration:none}
 .sec-title span{font:600 11px Poppins,sans-serif;text-transform:uppercase;background:var(--card);border-radius:30px;padding:6px 12px;color:var(--muted)}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(360px,1fr));gap:10px}
 
-.card{background:var(--card);border-radius:14px;padding:10px 12px;display:flex;align-items:center;gap:12px;
+.card{min-width:0;background:var(--card);border-radius:14px;padding:10px 12px;display:flex;align-items:center;gap:12px;
   transition:transform .2s,box-shadow .2s}
 .card:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(63,30,0,.12)}
 .card img,.card .fb{width:38px;height:38px;border-radius:10px;flex:none}
@@ -97,9 +97,10 @@ footer p+p{margin-top:6px}
   .featured{padding-bottom:20px}
 }
 @media (max-width:420px){
-  .grid{grid-template-columns:1fr}
+  .grid{grid-template-columns:minmax(0,1fr)}
   .earn{padding:10px 11px}
-  .meta{flex-wrap:nowrap;gap:4px}
+  .meta{gap:4px}
+  .extras{white-space:normal}
   .chip{padding:2px 6px;font-size:9px}
   .cta{padding:10px 14px;font-size:11px}
 }
@@ -192,16 +193,16 @@ const SITES = [
   { group:"freesites", name:"FreePancake",  coin:"CAKE", icon:"cake",  color:"#1fc7d4", claim:"day", max:"$300", url:"https://freepancake.com/?ref=61218" },
   { group:"freesites", name:"FreeDash",     coin:"DASH", icon:"dash",  color:"#008de4", claim:"day", max:"$300", url:"https://freedash.io/?ref=238729" },
   // PickSites network
-  { group:"picksites", name:"BitPick",  coin:"BTC", icon:"btc",   color:"#f7931a", claim:"hour", url:"https://bitpick.io/?ref=nico85", tag:"TOP" },
-  { group:"picksites", name:"TronPick", coin:"TRX", icon:"trx",   color:"#e5232d", claim:"hour", max:"30 TRX", url:"https://tronpick.io/?ref=nicocrypto", tag:"HOT" },
-  { group:"picksites", name:"LitePick", coin:"LTC", icon:"ltc",   color:"#345d9d", claim:"hour", url:"https://litepick.io/?ref=nico85" },
-  { group:"picksites", name:"DogePick", coin:"DOGE",icon:"doge",  color:"#c2a633", claim:"hour", url:"https://dogepick.io/?ref=nicocrypto" },
-  { group:"picksites", name:"SolPick",  coin:"SOL", icon:"sol",   color:"#9945ff", claim:"hour", url:"https://solpick.io/?ref=nicocrypto" },
-  { group:"picksites", name:"BnbPick",  coin:"BNB", icon:"bnb",   color:"#f3ba2f", claim:"hour", url:"https://bnbpick.io/?ref=nicocrypto" },
-  { group:"picksites", name:"BchPick",  coin:"BCH", icon:"bch",   color:"#8dc351", claim:"hour", url:"https://bchpick.io/?ref=nico85" },
-  { group:"picksites", name:"TonPick",  coin:"TON", icon:"ton",   color:"#0098ea", claim:"hour", url:"https://tonpick.game/?ref=nico85" },
-  { group:"picksites", name:"PolPick",  coin:"POL", icon:"matic", color:"#8247e5", claim:"hour", url:"https://polpick.io/?ref=nico85" },
-  { group:"picksites", name:"SuiPick",  coin:"SUI", icon:"sui",   color:"#4da2ff", claim:"hour", url:"https://suipick.io/?ref=nico85" },
+  { group:"picksites", name:"BitPick",  coin:"BTC", icon:"btc",   color:"#f7931a", claim:"hour", max:"0.00012 BTC", extras:["10 bonus claims via Google or email"], url:"https://bitpick.io/?ref=nico85", tag:"TOP" },
+  { group:"picksites", name:"TronPick", coin:"TRX", icon:"trx",   color:"#e5232d", claim:"hour", max:"30 TRX", extras:["10 bonus claims via Google or email"], url:"https://tronpick.io/?ref=nicocrypto", tag:"HOT" },
+  { group:"picksites", name:"LitePick", coin:"LTC", icon:"ltc",   color:"#345d9d", claim:"hour", max:"0.02 LTC", extras:["10 bonus claims via Google or email"], url:"https://litepick.io/?ref=nico85" },
+  { group:"picksites", name:"DogePick", coin:"DOGE",icon:"doge",  color:"#c2a633", claim:"hour", max:"10 DOGE", extras:["10 bonus claims via Google or email"], url:"https://dogepick.io/?ref=nicocrypto" },
+  { group:"picksites", name:"SolPick",  coin:"SOL", icon:"sol",   color:"#9945ff", claim:"hour", max:"0.01 SOL", extras:["10 bonus claims via Google or email"], url:"https://solpick.io/?ref=nicocrypto" },
+  { group:"picksites", name:"BnbPick",  coin:"BNB", icon:"bnb",   color:"#f3ba2f", claim:"hour", max:"0.006 BNB", extras:["10 bonus claims via Google or email"], url:"https://bnbpick.io/?ref=nicocrypto" },
+  { group:"picksites", name:"BchPick",  coin:"BCH", icon:"bch",   color:"#8dc351", claim:"hour", max:"0.015 BCH", extras:["10 bonus claims via Google or email"], url:"https://bchpick.io/?ref=nico85" },
+  { group:"picksites", name:"TonPick",  coin:"TON", icon:"ton",   color:"#0098ea", claim:"hour", max:"1 TON", extras:["10 bonus claims via Google or email"], url:"https://tonpick.game/?ref=nico85" },
+  { group:"picksites", name:"PolPick",  coin:"POL", icon:"matic", color:"#8247e5", claim:"hour", max:"3 POL", extras:["10 bonus claims via Google or email"], url:"https://polpick.io/?ref=nico85" },
+  { group:"picksites", name:"SuiPick",  coin:"SUI", icon:"sui",   color:"#4da2ff", claim:"hour", max:"1 SUI", extras:["10 bonus claims via Google or email"], url:"https://suipick.io/?ref=nico85" },
 ];
 // Top sites shown in the header (names from SITES). Empty = header strip hidden.
 const FEATURED = [];
