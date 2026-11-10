@@ -42,7 +42,7 @@ a{color:inherit;text-decoration:none}
 
 .featured{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
 .feat{display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.06);border-radius:14px 14px 0 0;padding:14px 16px}
-.feat img,.feat .fb{width:40px;height:40px;flex:none}
+.feat img,.feat .fb{width:40px;height:40px;flex:none;border-radius:10px}
 .feat small{display:block;font:600 9px Poppins,sans-serif;text-transform:uppercase;color:var(--nav);letter-spacing:.06em}
 .feat h3{font:800 15px Sora,sans-serif}
 .feat .go{margin-left:auto;background:rgba(255,255,255,.1);border-radius:10px;padding:9px 14px;
@@ -204,8 +204,12 @@ const SITES = [
   { group:"picksites", name:"PolPick",  coin:"POL", icon:"matic", color:"#8247e5", claim:"hour", max:"3 POL", extras:["10 bonus claims via Google or email"], url:"https://polpick.io/?ref=nico85" },
   { group:"picksites", name:"SuiPick",  coin:"SUI", icon:"sui",   color:"#4da2ff", claim:"hour", max:"1 SUI", extras:["10 bonus claims via Google or email"], url:"https://suipick.io/?ref=nico85" },
 ];
-// Top sites shown in the header (names from SITES). Empty = header strip hidden.
-const FEATURED = [];
+// Top sites shown in the header. Empty = header strip hidden.
+const FEATURED = [
+  { name:"FaucetPay", site:"faucetpay.io",  coin:"FP", color:"#1e88e5", label:"Wallet & earn", go:"Your crypto wallet", url:"https://faucetpay.io/r/5408126" },
+  { name:"RewardJoy", site:"rewardjoy.com", coin:"RJ", color:"#7b4dff", label:"PTC & offers",  go:"Earn now",           url:"https://www.rewardjoy.com/?r=3fM24xkX2MZ3" },
+  { name:"ClipCoin",  site:"clipcoin.pro",  coin:"CC", color:"#e0218a", label:"Watch & earn",  go:"Watch & earn",       url:"https://clipcoin.pro/u/lqytn" },
+];
 
 const ICONS = "https://cdn.jsdelivr.net/npm/cryptocurrency-icons@0.18.1/svg/color/";
 const arrow = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M14 4h6v6M20 4l-9 9M18 14v6H4V6h6"/></svg>';
@@ -242,11 +246,11 @@ document.getElementById("sections").innerHTML = GROUPS.map(g => {
 
 const feat = document.getElementById("featured");
 if (FEATURED.length) {
-  feat.innerHTML = FEATURED.map(n => SITES.find(s => s.name === n)).filter(Boolean).map(s => `
+  feat.innerHTML = FEATURED.map(s => `
     <a class="feat" href="${esc(s.url)}" target="_blank" rel="noopener sponsored">
       ${logo(s)}
-      <div><small>Top faucet</small><h3>${s.name}</h3></div>
-      <span class="go">Claim now</span>
+      <div><small>${s.label}</small><h3>${s.name}</h3></div>
+      <span class="go">${s.go}</span>
     </a>`).join("");
 } else {
   feat.remove();
