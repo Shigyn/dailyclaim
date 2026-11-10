@@ -115,6 +115,7 @@ footer p+p{margin-top:6px}
         <a class="on" href="#faucets">TOP</a>
         <a href="#faucets">Faucets &amp; PTC</a>
         <a href="#freesites">FreeSites</a>
+        <a href="#picksites">PickSites</a>
         <a href="#how">How it works</a>
       </nav>
       <a class="cta" id="cta" href="#" target="_blank" rel="noopener sponsored">Claim free BTC</a>
@@ -175,7 +176,6 @@ const SITES = [
   // Faucets & PTC
   { group:"faucets", name:"VieFaucet",  site:"viefaucet.com",  coin:"V", color:"#1f7cf2", claim:"4 min",  url:"https://viefaucet.com?r=6480dff3371c056c0073e194", extras:["PTC","Offerwall","Shortlinks"], tag:"TOP" },
   { group:"faucets", name:"FireFaucet", site:"firefaucet.win", coin:"F", color:"#ff5a1f", claim:"30 min", url:"https://firefaucet.win/ref/nicocrypto", extras:["PTC","Offerwall","Auto claim"], tag:"TOP" },
-  { group:"faucets", name:"TronPick",   coin:"TRX", icon:"trx", color:"#e5232d", claim:"hour", max:"30 TRX", url:"https://tronpick.io/?ref=nicocrypto", tag:"HOT" },
 
   // FreeSites network
   { group:"freesites", name:"FreeBitcoin",  coin:"BTC",  icon:"btc",   color:"#f7931a", claim:"day", max:"$300", url:"https://freebitcoin.io/?ref=795166", tag:"TOP" },
@@ -191,6 +191,17 @@ const SITES = [
   { group:"freesites", name:"FreeUSDCoin",  coin:"USDC", icon:"usdc",  color:"#2775ca", claim:"day", max:"$300", url:"https://freeusdcoin.com/?ref=234054" },
   { group:"freesites", name:"FreePancake",  coin:"CAKE", icon:"cake",  color:"#1fc7d4", claim:"day", max:"$300", url:"https://freepancake.com/?ref=61218" },
   { group:"freesites", name:"FreeDash",     coin:"DASH", icon:"dash",  color:"#008de4", claim:"day", max:"$300", url:"https://freedash.io/?ref=238729" },
+  // PickSites network
+  { group:"picksites", name:"BitPick",  coin:"BTC", icon:"btc",   color:"#f7931a", claim:"hour", url:"https://bitpick.io/?ref=nico85", tag:"TOP" },
+  { group:"picksites", name:"TronPick", coin:"TRX", icon:"trx",   color:"#e5232d", claim:"hour", max:"30 TRX", url:"https://tronpick.io/?ref=nicocrypto", tag:"HOT" },
+  { group:"picksites", name:"LitePick", coin:"LTC", icon:"ltc",   color:"#345d9d", claim:"hour", url:"https://litepick.io/?ref=nico85" },
+  { group:"picksites", name:"DogePick", coin:"DOGE",icon:"doge",  color:"#c2a633", claim:"hour", url:"https://dogepick.io/?ref=nicocrypto" },
+  { group:"picksites", name:"SolPick",  coin:"SOL", icon:"sol",   color:"#9945ff", claim:"hour", url:"https://solpick.io/?ref=nicocrypto" },
+  { group:"picksites", name:"BnbPick",  coin:"BNB", icon:"bnb",   color:"#f3ba2f", claim:"hour", url:"https://bnbpick.io/?ref=nicocrypto" },
+  { group:"picksites", name:"BchPick",  coin:"BCH", icon:"bch",   color:"#8dc351", claim:"hour", url:"https://bchpick.io/?ref=nico85" },
+  { group:"picksites", name:"TonPick",  coin:"TON", icon:"ton",   color:"#0098ea", claim:"hour", url:"https://tonpick.game/?ref=nico85" },
+  { group:"picksites", name:"PolPick",  coin:"POL", icon:"matic", color:"#8247e5", claim:"hour", url:"https://polpick.io/?ref=nico85" },
+  { group:"picksites", name:"SuiPick",  coin:"SUI", icon:"sui",   color:"#4da2ff", claim:"hour", url:"https://suipick.io/?ref=nico85" },
 ];
 // Top sites shown in the header (names from SITES). Empty = header strip hidden.
 const FEATURED = [];
