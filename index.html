@@ -187,6 +187,7 @@ const SITES = [
   { group:"faucets", name:"VieFaucet",  site:"viefaucet.com",  coin:"V", color:"#1f7cf2", claim:"4 min",  url:"https://viefaucet.com?r=6480dff3371c056c0073e194", extras:["PTC","Offerwall","Shortlinks"], tag:"TOP" },
   { group:"faucets", name:"FireFaucet", site:"firefaucet.win", coin:"F", color:"#ff5a1f", claim:"30 min", url:"https://firefaucet.win/ref/nicocrypto", extras:["PTC","Offerwall","Auto claim"], tag:"TOP" },
   { group:"faucets", name:"FaucetEarner", coin:"XRP", icon:"xrp", color:"#23292f", claim:"10 min", max:"100 XRP", url:"https://faucetearner.org/?r=405490754306" },
+  { group:"faucets", name:"DutchyCorp", site:"autofaucet.dutchycorp.space", tp:"dutchycorp.space", coin:"D", color:"#ff7a00", claim:"auto", url:"https://autofaucet.dutchycorp.space/?r=nicocrypto", extras:["Roll","PTC","Shortlinks","Offerwall"], tag:"🔥" },
 
   // LuxSites network
   { group:"luxsites", name:"BtcLux",   coin:"BTC",  icon:"btc",  color:"#f7931a", claim:"hour", max:"0.0000155666 BTC", url:"https://btclux.io/?ref=nicocrypto", tag:"TOP" },
@@ -229,8 +230,8 @@ const logo = (s) => {
     onerror="this.outerHTML='<span class=&quot;fb&quot; style=&quot;background:${s.color}&quot;>${s.coin}</span>'">`;
 };
 const esc = (u) => u.replace(/"/g, "&quot;");
-const trustpilot = (u) => "https://www.trustpilot.com/review/" + new URL(u).hostname.replace(/^www\./, "");
-const timer = (c) => ({ day:"Daily claim", hour:"Hourly claim" })[c] || `Every ${c}`;
+const trustpilot = (s) => "https://www.trustpilot.com/review/" + (s.tp || new URL(s.url).hostname.replace(/^www\./, ""));
+const timer = (c) => ({ day:"Daily claim", hour:"Hourly claim", auto:"Auto faucet" })[c] || `Every ${c}`;
 
 const card = (s) => `
   <article class="card">
@@ -245,7 +246,7 @@ const card = (s) => `
     </div>
     <div class="act">
       <a class="earn" href="${esc(s.url)}" target="_blank" rel="noopener sponsored">Earn now ${arrow}</a>
-      <a class="tp" href="${trustpilot(s.url)}" target="_blank" rel="noopener" title="${s.name} reviews on Trustpilot"><i>★</i>Trustpilot</a>
+      <a class="tp" href="${trustpilot(s)}" target="_blank" rel="noopener" title="${s.name} reviews on Trustpilot"><i>★</i>Trustpilot</a>
     </div>
   </article>`;
 
