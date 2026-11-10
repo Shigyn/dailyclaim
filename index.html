@@ -188,6 +188,7 @@ const SITES = [
   { group:"faucets", name:"FireFaucet", site:"firefaucet.win", coin:"F", color:"#ff5a1f", claim:"30 min", url:"https://firefaucet.win/ref/nicocrypto", extras:["PTC","Offerwall","Auto claim"], tag:"TOP" },
   { group:"faucets", name:"FaucetEarner", coin:"XRP", icon:"xrp", color:"#23292f", claim:"10 min", max:"100 XRP", url:"https://faucetearner.org/?r=405490754306" },
   { group:"faucets", name:"DutchyCorp", site:"autofaucet.dutchycorp.space", tp:"dutchycorp.space", coin:"D", color:"#ff7a00", claim:"auto", url:"https://autofaucet.dutchycorp.space/?r=nicocrypto", extras:["Roll","PTC","Shortlinks","Offerwall"], tag:"🔥" },
+  { group:"faucets", name:"RollerCoin", site:"rollercoin.com", coin:"R", color:"#3e1f8c", label:"🎮 Mining game", url:"https://rollercoin.com/?r=lfx0gx8l", extras:["Play mini-games","Virtual mining","Withdraw crypto"] },
 
   // LuxSites network
   { group:"luxsites", name:"BtcLux",   coin:"BTC",  icon:"btc",  color:"#f7931a", claim:"hour", max:"0.0000155666 BTC", url:"https://btclux.io/?ref=nicocrypto", tag:"TOP" },
@@ -239,7 +240,7 @@ const card = (s) => `
     <div class="info">
       <h3>${s.name}${s.tag ? ` <span class="tag">${s.tag}</span>` : ""}</h3>
       <div class="meta">
-        <span class="chip">⏱ ${timer(s.claim)}</span>
+        <span class="chip">${s.label || "⏱ " + timer(s.claim)}</span>
         ${s.max ? `<span class="chip" title="Up to ${s.max}">Up to ${s.max}</span>` : ""}
       </div>
       ${s.extras ? `<div class="extras">+ ${s.extras.join(" · ")}</div>` : ""}
