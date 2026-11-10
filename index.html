@@ -67,6 +67,8 @@ a{color:inherit;text-decoration:none}
 .meta{display:flex;gap:6px;flex-wrap:wrap;margin-top:4px}
 .chip{background:var(--soft);border-radius:30px;padding:2px 8px;font:600 10px Poppins,sans-serif;color:#000;white-space:nowrap}
 .chip.dark{background:#3f1e00;color:#ffd9a8}
+.extras{margin-top:4px;font:600 10px Poppins,sans-serif;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#sections section+section{margin-top:32px}
 .earn{background:var(--dark);color:#fff;font:700 11px Poppins,sans-serif;text-transform:uppercase;border-radius:10px;
   padding:10px 14px;display:flex;align-items:center;gap:6px;white-space:nowrap;flex:none}
 .earn:hover{background:var(--orange)}
@@ -110,9 +112,9 @@ footer p+p{margin-top:6px}
     <div class="nav">
       <a class="logo" href="#"><i>D</i>DAILYCLAIM</a>
       <nav class="menu">
-        <a class="on" href="#freesites">TOP</a>
-        <a href="#freesites">Faucets</a>
-        <a href="#freesites">Earn Crypto</a>
+        <a class="on" href="#faucets">TOP</a>
+        <a href="#faucets">Faucets &amp; PTC</a>
+        <a href="#freesites">FreeSites</a>
         <a href="#how">How it works</a>
       </nav>
       <a class="cta" id="cta" href="#" target="_blank" rel="noopener sponsored">Claim free BTC</a>
@@ -121,10 +123,10 @@ footer p+p{margin-top:6px}
     <div class="hero">
       <div class="pill">Top earning • Daily updating</div>
       <h1>Best ways to earn <em>Free Crypto</em> every day!</h1>
-      <p>The best legit faucets to claim free crypto every day — and some every hour.</p>
+      <p>The best legit faucets to claim free crypto — every few minutes, every hour or every day.</p>
       <div class="perks">
         <span><b>★</b> Top Paying Faucets</span>
-        <span><b>🎁</b> Hourly &amp; Daily Claims</span>
+        <span><b>🎁</b> Faucets, PTC &amp; Offerwalls</span>
         <span><b>🛡</b> Legit Websites</span>
       </div>
     </div>
@@ -134,10 +136,7 @@ footer p+p{margin-top:6px}
 </div>
 
 <main class="wrap list">
-  <section id="freesites">
-    <div class="sec-title"><h2>FreeSites Network</h2><span id="count"></span></div>
-    <div class="grid" id="grid"></div>
-  </section>
+  <div id="sections"></div>
 
   <section class="how" id="how">
     <h2>Claim &amp; <em>Earn Free Crypto!</em></h2>
@@ -145,7 +144,7 @@ footer p+p{margin-top:6px}
     <div class="steps">
       <div class="step"><b><span>1.</span> Pick a faucet</b><p>Hit “Earn now” to open the sign-up page.</p></div>
       <div class="step"><b><span>2.</span> Create your account</b><p>Just an email and a password. Use a different password on each site.</p></div>
-      <div class="step"><b><span>3.</span> Claim every day</b><p>Come back as soon as the claim timer resets: every hour or every day depending on the site.</p></div>
+      <div class="step"><b><span>3.</span> Claim again</b><p>Come back as soon as the claim timer resets: every few minutes, every hour or every day depending on the site.</p></div>
       <div class="step"><b><span>4.</span> Withdraw</b><p>Reach the minimum and withdraw to your crypto wallet.</p></div>
     </div>
   </section>
@@ -160,45 +159,74 @@ footer p+p{margin-top:6px}
 
 <script>
 // To add a faucet: add one line to SITES.
-//   claim: "day" or "hour"   max: biggest prize per claim (optional)   tag: "TOP", "HOT", "NEW"... (optional)
+//   group: section it goes in (see GROUPS)
+//   claim: "day", "hour" or any timer like "4 min" / "30 min"
+//   max:   biggest prize per claim (optional)
+//   extras: other ways to earn on the site (optional)
+//   icon:  coin icon name (btc, trx...) OR site:"domain.com" to use the site's own logo
+//   tag:   "TOP", "HOT", "NEW"... (optional)
+const GROUPS = [
+  { id:"faucets",   title:"Faucets & PTC" },
+  { id:"freesites", title:"FreeSites Network" },
+  { id:"picksites", title:"PickSites Network" },
+];
+
 const SITES = [
+  // Faucets & PTC
+  { group:"faucets", name:"VieFaucet",  site:"viefaucet.com",  coin:"V", color:"#1f7cf2", claim:"4 min",  url:"https://viefaucet.com?r=6480dff3371c056c0073e194", extras:["PTC","Offerwall","Shortlinks"], tag:"TOP" },
+  { group:"faucets", name:"FireFaucet", site:"firefaucet.win", coin:"F", color:"#ff5a1f", claim:"30 min", url:"https://firefaucet.win/ref/nicocrypto", extras:["PTC","Offerwall","Auto claim"], tag:"TOP" },
+  { group:"faucets", name:"TronPick",   coin:"TRX", icon:"trx", color:"#e5232d", claim:"hour", max:"30 TRX", url:"https://tronpick.io/?ref=nicocrypto", tag:"HOT" },
+
   // FreeSites network
-  { name:"FreeBitcoin",  coin:"BTC",  icon:"btc",   color:"#f7931a", claim:"day", max:"$300", url:"https://freebitcoin.io/?ref=795166", tag:"TOP" },
-  { name:"FreeEthereum", coin:"ETH",  icon:"eth",   color:"#627eea", claim:"day", max:"$300", url:"https://freeethereum.com/?ref=425400", tag:"TOP" },
-  { name:"FreeBNB",      coin:"BNB",  icon:"bnb",   color:"#f3ba2f", claim:"day", max:"$300", url:"https://freebinancecoin.com/?ref=411855" },
-  { name:"CoinFaucet",   coin:"XRP",  icon:"xrp",   color:"#23292f", claim:"day", max:"$300", url:"https://coinfaucet.io/?ref=961985" },
-  { name:"FreeTron",     coin:"TRX",  icon:"trx",   color:"#e5232d", claim:"day", max:"$300", url:"https://free-tron.com/?ref=516456", tag:"HOT" },
-  { name:"FreeLTC",      coin:"LTC",  icon:"ltc",   color:"#345d9d", claim:"day", max:"$300", url:"https://free-ltc.com/?ref=274137" },
-  { name:"FreeDoge",     coin:"DOGE", icon:"doge",  color:"#c2a633", claim:"day", max:"$300", url:"https://free-doge.com/?ref=329610", tag:"TOP" },
-  { name:"FreeCryptom",  coin:"POL",  icon:"matic", color:"#8247e5", claim:"day", max:"$300", url:"https://freecryptom.com/?ref=143480" },
-  { name:"FreeShibaInu", coin:"SHIB", icon:"shib",  color:"#e44b17", claim:"day", max:"$300", url:"https://freeshibainu.com/?ref=200011", tag:"HOT" },
-  { name:"FreeCardano",  coin:"ADA",  icon:"ada",   color:"#0033ad", claim:"day", max:"$300", url:"https://freecardano.com/?ref=493002" },
-  { name:"FreeUSDCoin",  coin:"USDC", icon:"usdc",  color:"#2775ca", claim:"day", max:"$300", url:"https://freeusdcoin.com/?ref=234054" },
-  { name:"FreePancake",  coin:"CAKE", icon:"cake",  color:"#1fc7d4", claim:"day", max:"$300", url:"https://freepancake.com/?ref=61218" },
-  { name:"FreeDash",     coin:"DASH", icon:"dash",  color:"#008de4", claim:"day", max:"$300", url:"https://freedash.io/?ref=238729" },
+  { group:"freesites", name:"FreeBitcoin",  coin:"BTC",  icon:"btc",   color:"#f7931a", claim:"day", max:"$300", url:"https://freebitcoin.io/?ref=795166", tag:"TOP" },
+  { group:"freesites", name:"FreeEthereum", coin:"ETH",  icon:"eth",   color:"#627eea", claim:"day", max:"$300", url:"https://freeethereum.com/?ref=425400", tag:"TOP" },
+  { group:"freesites", name:"FreeBNB",      coin:"BNB",  icon:"bnb",   color:"#f3ba2f", claim:"day", max:"$300", url:"https://freebinancecoin.com/?ref=411855" },
+  { group:"freesites", name:"CoinFaucet",   coin:"XRP",  icon:"xrp",   color:"#23292f", claim:"day", max:"$300", url:"https://coinfaucet.io/?ref=961985" },
+  { group:"freesites", name:"FreeTron",     coin:"TRX",  icon:"trx",   color:"#e5232d", claim:"day", max:"$300", url:"https://free-tron.com/?ref=516456", tag:"HOT" },
+  { group:"freesites", name:"FreeLTC",      coin:"LTC",  icon:"ltc",   color:"#345d9d", claim:"day", max:"$300", url:"https://free-ltc.com/?ref=274137" },
+  { group:"freesites", name:"FreeDoge",     coin:"DOGE", icon:"doge",  color:"#c2a633", claim:"day", max:"$300", url:"https://free-doge.com/?ref=329610", tag:"TOP" },
+  { group:"freesites", name:"FreeCryptom",  coin:"POL",  icon:"matic", color:"#8247e5", claim:"day", max:"$300", url:"https://freecryptom.com/?ref=143480" },
+  { group:"freesites", name:"FreeShibaInu", coin:"SHIB", icon:"shib",  color:"#e44b17", claim:"day", max:"$300", url:"https://freeshibainu.com/?ref=200011", tag:"HOT" },
+  { group:"freesites", name:"FreeCardano",  coin:"ADA",  icon:"ada",   color:"#0033ad", claim:"day", max:"$300", url:"https://freecardano.com/?ref=493002" },
+  { group:"freesites", name:"FreeUSDCoin",  coin:"USDC", icon:"usdc",  color:"#2775ca", claim:"day", max:"$300", url:"https://freeusdcoin.com/?ref=234054" },
+  { group:"freesites", name:"FreePancake",  coin:"CAKE", icon:"cake",  color:"#1fc7d4", claim:"day", max:"$300", url:"https://freepancake.com/?ref=61218" },
+  { group:"freesites", name:"FreeDash",     coin:"DASH", icon:"dash",  color:"#008de4", claim:"day", max:"$300", url:"https://freedash.io/?ref=238729" },
 ];
 // Top sites shown in the header (names from SITES). Empty = header strip hidden.
 const FEATURED = [];
 
 const ICONS = "https://cdn.jsdelivr.net/npm/cryptocurrency-icons@0.18.1/svg/color/";
 const arrow = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M14 4h6v6M20 4l-9 9M18 14v6H4V6h6"/></svg>';
-const logo = (s) => `<img src="${ICONS}${s.icon}.svg" alt="${s.coin}" loading="lazy"
-  onerror="this.outerHTML='<span class=&quot;fb&quot; style=&quot;background:${s.color}&quot;>${s.coin}</span>'">`;
+const logo = (s) => {
+  const src = s.site ? `https://www.google.com/s2/favicons?domain=${s.site}&sz=64` : `${ICONS}${s.icon}.svg`;
+  return `<img src="${src}" alt="${s.name}" loading="lazy"
+    onerror="this.outerHTML='<span class=&quot;fb&quot; style=&quot;background:${s.color}&quot;>${s.coin}</span>'">`;
+};
 const esc = (u) => u.replace(/"/g, "&quot;");
-const every = { day:"Daily claim", hour:"Hourly claim" };
+const timer = (c) => ({ day:"Daily claim", hour:"Hourly claim" })[c] || `Every ${c}`;
 
-document.getElementById("grid").innerHTML = SITES.map(s => `
+const card = (s) => `
   <article class="card">
     ${logo(s)}
     <div class="info">
       <h3>${s.name}${s.tag ? ` <span class="tag">${s.tag}</span>` : ""}</h3>
       <div class="meta">
-        <span class="chip">⏱ ${every[s.claim] || s.claim}</span>
+        <span class="chip">⏱ ${timer(s.claim)}</span>
         ${s.max ? `<span class="chip">Up to ${s.max}</span>` : ""}
       </div>
+      ${s.extras ? `<div class="extras">+ ${s.extras.join(" · ")}</div>` : ""}
     </div>
     <a class="earn" href="${esc(s.url)}" target="_blank" rel="noopener sponsored">Earn now ${arrow}</a>
-  </article>`).join("");
+  </article>`;
+
+document.getElementById("sections").innerHTML = GROUPS.map(g => {
+  const list = SITES.filter(s => s.group === g.id);
+  if (!list.length) return "";
+  return `<section id="${g.id}">
+    <div class="sec-title"><h2>${g.title}</h2><span>${list.length} ${list.length > 1 ? "faucets" : "faucet"}</span></div>
+    <div class="grid">${list.map(card).join("")}</div>
+  </section>`;
+}).join("");
 
 const feat = document.getElementById("featured");
 if (FEATURED.length) {
@@ -206,14 +234,13 @@ if (FEATURED.length) {
     <a class="feat" href="${esc(s.url)}" target="_blank" rel="noopener sponsored">
       ${logo(s)}
       <div><small>Top faucet</small><h3>${s.name}</h3></div>
-      <span class="go">Claim free ${s.coin}</span>
+      <span class="go">Claim now</span>
     </a>`).join("");
 } else {
   feat.remove();
 }
 
-document.getElementById("count").textContent = SITES.length + " faucets";
-document.getElementById("cta").href = SITES[0].url;
+document.getElementById("cta").href = SITES.find(s => s.name === "FreeBitcoin").url;
 </script>
 </body>
 </html>
