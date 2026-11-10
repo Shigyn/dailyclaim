@@ -123,9 +123,8 @@ footer p+p{margin-top:6px}
         <a class="on" href="#faucets">TOP</a>
         <a href="#faucets">Faucets &amp; PTC</a>
         <a href="#luxsites">LuxSites</a>
-        <a href="#freesites">FreeSites</a>
-        <a href="#picksites">PickSites</a>
         <a href="#dropsites">DropSites</a>
+        <a href="#picksites">PickSites</a>
         <a href="#how">How it works</a>
       </nav>
       <a class="cta" id="cta" href="#" target="_blank" rel="noopener sponsored">Claim free BTC</a>
@@ -179,9 +178,8 @@ footer p+p{margin-top:6px}
 const GROUPS = [
   { id:"faucets",   title:"Faucets & PTC" },
   { id:"luxsites",  title:"Lux Network" },
-  { id:"freesites", title:"Free Network" },
-  { id:"picksites", title:"Pick Network" },
   { id:"dropsites", title:"Drop Network" },
+  { id:"picksites", title:"Pick Network" },
 ];
 
 const SITES = [
@@ -198,20 +196,6 @@ const SITES = [
   { group:"luxsites", name:"PepeLux",  coin:"PEPE", icon:"pepe", color:"#3d9a2b", claim:"hour", max:"1,600,000 PEPE", url:"https://pepelux.io/?ref=nicocrypto" },
   { group:"luxsites", name:"BnbLux",   coin:"BNB",  icon:"bnb",  color:"#f3ba2f", claim:"hour", max:"0.0088 BNB", url:"https://bnblux.io/?ref=nicocrypto" },
 
-  // FreeSites network
-  { group:"freesites", name:"FreeBitcoin",  coin:"BTC",  icon:"btc",   color:"#f7931a", claim:"day", max:"$300", url:"https://freebitcoin.io/?ref=795166", tag:"TOP" },
-  { group:"freesites", name:"FreeEthereum", coin:"ETH",  icon:"eth",   color:"#627eea", claim:"day", max:"$300", url:"https://freeethereum.com/?ref=425400", tag:"TOP" },
-  { group:"freesites", name:"FreeBNB",      coin:"BNB",  icon:"bnb",   color:"#f3ba2f", claim:"day", max:"$300", url:"https://freebinancecoin.com/?ref=411855" },
-  { group:"freesites", name:"CoinFaucet",   coin:"XRP",  icon:"xrp",   color:"#23292f", claim:"day", max:"$300", url:"https://coinfaucet.io/?ref=961985" },
-  { group:"freesites", name:"FreeTron",     coin:"TRX",  icon:"trx",   color:"#e5232d", claim:"day", max:"$300", url:"https://free-tron.com/?ref=516456", tag:"HOT" },
-  { group:"freesites", name:"FreeLTC",      coin:"LTC",  icon:"ltc",   color:"#345d9d", claim:"day", max:"$300", url:"https://free-ltc.com/?ref=274137" },
-  { group:"freesites", name:"FreeDoge",     coin:"DOGE", icon:"doge",  color:"#c2a633", claim:"day", max:"$300", url:"https://free-doge.com/?ref=329610", tag:"TOP" },
-  { group:"freesites", name:"FreeCryptom",  coin:"POL",  icon:"matic", color:"#8247e5", claim:"day", max:"$300", url:"https://freecryptom.com/?ref=143480" },
-  { group:"freesites", name:"FreeShibaInu", coin:"SHIB", icon:"shib",  color:"#e44b17", claim:"day", max:"$300", url:"https://freeshibainu.com/?ref=200011", tag:"HOT" },
-  { group:"freesites", name:"FreeCardano",  coin:"ADA",  icon:"ada",   color:"#0033ad", claim:"day", max:"$300", url:"https://freecardano.com/?ref=493002" },
-  { group:"freesites", name:"FreeUSDCoin",  coin:"USDC", icon:"usdc",  color:"#2775ca", claim:"day", max:"$300", url:"https://freeusdcoin.com/?ref=234054" },
-  { group:"freesites", name:"FreePancake",  coin:"CAKE", icon:"cake",  color:"#1fc7d4", claim:"day", max:"$300", url:"https://freepancake.com/?ref=61218" },
-  { group:"freesites", name:"FreeDash",     coin:"DASH", icon:"dash",  color:"#008de4", claim:"day", max:"$300", url:"https://freedash.io/?ref=238729" },
   // PickSites network
   { group:"picksites", name:"BitPick",  coin:"BTC", icon:"btc",   color:"#f7931a", claim:"hour", max:"0.00012 BTC", extras:["10 bonus claims via Google or email"], url:"https://bitpick.io/?ref=nico85", tag:"TOP" },
   { group:"picksites", name:"TronPick", coin:"TRX", icon:"trx",   color:"#e5232d", claim:"hour", max:"30 TRX", extras:["10 bonus claims via Google or email"], url:"https://tronpick.io/?ref=nicocrypto", tag:"HOT" },
@@ -285,7 +269,7 @@ if (FEATURED.length) {
   feat.remove();
 }
 
-document.getElementById("cta").href = SITES.find(s => s.name === "FreeBitcoin").url;
+document.getElementById("cta").href = SITES.find(s => s.name === "BtcLux").url;
 </script>
 </body>
 </html>
