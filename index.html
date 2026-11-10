@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DailyClaim – Earn Free Crypto Every Day!</title>
+<meta name="description" content="The best free crypto faucets: claim once a day on every site and win up to $300 in BTC, ETH, BNB, DOGE, TRX and more.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700&family=Sora:wght@400;600;800&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --page:#f0ead9; --card:#fffcf3; --soft:#fcefcb; --ink:#000; --text:#333; --muted:#535e71;
+  --orange:#ff4d00; --orange-2:#db3000; --dark:#212123; --hero-1:#3f1e00; --hero-2:#190e08; --nav:#d5c0b5;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--page);color:var(--text);font:16px/1.5 Sora,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1200px;margin:0 auto;padding:0 16px}
+
+/* ---------- top (dark) ---------- */
+.top{background:radial-gradient(ellipse at 50% 0%,var(--hero-1) 0%,var(--hero-2) 100%);color:#fff;padding-bottom:0}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;height:72px}
+.logo{display:flex;align-items:center;gap:10px;font:700 20px Unbounded,sans-serif;letter-spacing:.02em}
+.logo i{width:32px;height:32px;border-radius:9px;background:linear-gradient(var(--orange),var(--orange-2));
+  display:grid;place-items:center;font-style:normal;font-size:16px}
+.menu{display:flex;gap:26px;font-size:13px;font-weight:600;color:var(--nav)}
+.menu a:hover,.menu a.on{color:var(--orange)}
+.cta{background:var(--orange);color:#fff;font:700 12px Poppins,sans-serif;text-transform:uppercase;
+  padding:12px 20px;border-radius:30px;white-space:nowrap;box-shadow:0 6px 20px rgba(255,77,0,.35)}
+.cta:hover{filter:brightness(1.08)}
+
+.hero{text-align:center;padding:44px 0 40px}
+.pill{display:inline-flex;align-items:center;gap:8px;font:600 10px Poppins,sans-serif;letter-spacing:.08em;text-transform:uppercase}
+.pill::before{content:"";width:10px;height:10px;border-radius:50%;background:#7ddc1f;box-shadow:0 0 0 3px rgba(125,220,31,.25)}
+.hero h1{font:700 clamp(24px,4.2vw,40px)/1.2 Unbounded,sans-serif;margin:16px 0 14px}
+.hero h1 em{font-style:normal;color:var(--orange)}
+.hero p{color:#e4d6cc;font-size:15px}
+.perks{display:flex;justify-content:center;gap:30px;flex-wrap:wrap;margin-top:20px;font:600 13px Sora,sans-serif}
+.perks span{display:flex;align-items:center;gap:8px}
+.perks b{color:#ffb800}
+
+.featured{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.feat{display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.06);border-radius:14px 14px 0 0;padding:14px 16px}
+.feat img,.feat .fb{width:40px;height:40px;flex:none}
+.feat small{display:block;font:600 9px Poppins,sans-serif;text-transform:uppercase;color:var(--nav);letter-spacing:.06em}
+.feat h3{font:800 15px Sora,sans-serif}
+.feat .go{margin-left:auto;background:rgba(255,255,255,.1);border-radius:10px;padding:9px 14px;
+  font:700 10px Poppins,sans-serif;text-transform:uppercase;text-align:center;white-space:nowrap}
+.feat .go:hover{background:var(--orange)}
+
+/* ---------- list ---------- */
+.list{padding-top:24px;padding-bottom:56px}
+.sec-title{display:flex;align-items:center;gap:12px;margin:8px 0 18px}
+.sec-title h2{font:700 20px Unbounded,sans-serif;color:var(--ink)}
+.sec-title span{font:600 11px Poppins,sans-serif;text-transform:uppercase;background:var(--card);border-radius:30px;padding:6px 12px;color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:18px}
+
+.card{background:var(--card);border-radius:20px;padding:20px;display:flex;flex-direction:column;gap:12px;
+  transition:transform .2s,box-shadow .2s}
+.card:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(63,30,0,.12)}
+.head{display:flex;align-items:center;gap:12px}
+.head img,.head .fb{width:48px;height:48px;border-radius:12px;flex:none}
+.head h3{font:800 17px Sora,sans-serif;color:var(--ink)}
+.head small{font:600 10px Poppins,sans-serif;text-transform:uppercase;color:var(--muted);letter-spacing:.04em}
+.tags{margin-left:auto;display:flex;flex-direction:column;align-items:flex-end;gap:5px}
+.tag{font:600 10px Poppins,sans-serif;text-transform:uppercase;color:#fff;border-radius:30px;padding:3px 10px;
+  background:linear-gradient(var(--orange),var(--orange-2))}
+.tag.purple{background:linear-gradient(#7b4dff,#5a2fd6)}
+.tag.light{background:var(--page);color:#000;display:flex;align-items:center;gap:5px}
+.tag.light::before{content:"";width:7px;height:7px;border-radius:50%;background:#20b25a}
+.promo{font:600 11px Poppins,sans-serif;text-transform:uppercase;color:var(--ink)}
+.hl{background:var(--soft);border-radius:30px;padding:6px 12px;font-size:12px;color:#000;display:flex;gap:8px;align-items:center}
+.feats{list-style:none;display:grid;gap:5px;font-size:12px;color:#000}
+.feats li{display:flex;gap:8px;align-items:center}
+.feats li::before{content:"✔";display:grid;place-items:center;width:15px;height:15px;border-radius:50%;
+  background:#000;color:#fff;font-size:8px;flex:none}
+.foot{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin-top:auto;padding-top:6px}
+.foot small{display:block;font:700 9px Poppins,sans-serif;text-transform:uppercase;color:var(--ink);margin-bottom:5px}
+.wd{display:inline-flex;align-items:center;gap:6px;background:#3f1e00;color:#ffd9a8;border-radius:30px;padding:4px 10px 4px 5px;font:600 10px Poppins,sans-serif}
+.wd img,.wd .fb{width:16px;height:16px;border-radius:50%;font-size:6px}
+.earn{background:var(--dark);color:#fff;font:700 12px Poppins,sans-serif;text-transform:uppercase;border-radius:12px;
+  padding:13px 22px;display:flex;align-items:center;gap:8px;white-space:nowrap}
+.earn:hover{background:var(--orange)}
+.earn svg{width:12px;height:12px}
+
+.fb{display:grid;place-items:center;border-radius:50%;color:#fff;font:700 11px Poppins,sans-serif}
+
+/* ---------- bottom ---------- */
+.how{background:var(--card);border-radius:20px;padding:32px 24px;margin-top:40px;text-align:center}
+.how h2{font:700 clamp(18px,3vw,26px)/1.3 Unbounded,sans-serif;color:var(--ink)}
+.how h2 em{font-style:normal;color:var(--orange)}
+.how > p{color:var(--muted);font-size:14px;margin-top:8px}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-top:24px;text-align:left}
+.step{background:var(--page);border-radius:14px;padding:16px}
+.step b{display:block;font:800 14px Sora,sans-serif;color:var(--ink);margin-bottom:4px}
+.step b span{color:var(--orange)}
+.step p{font-size:13px;color:var(--muted)}
+
+footer{background:var(--hero-2);color:#bfa898;font-size:12px;padding:24px 0;text-align:center}
+footer p+p{margin-top:6px}
+
+@media (max-width:900px){
+  .menu{display:none}
+  .featured{grid-template-columns:1fr}
+  .feat{border-radius:14px}
+  .featured{padding-bottom:20px}
+}
+@media (max-width:420px){
+  .grid{grid-template-columns:1fr}
+  .cta{padding:10px 14px;font-size:11px}
+  .earn{padding:12px 16px}
+}
+</style>
+</head>
+<body>
+
+<div class="top">
+  <div class="wrap">
+    <div class="nav">
+      <a class="logo" href="#"><i>D</i>DAILYCLAIM</a>
+      <nav class="menu">
+        <a class="on" href="#freesites">TOP</a>
+        <a href="#freesites">Faucets</a>
+        <a href="#freesites">Earn Crypto</a>
+        <a href="#how">How it works</a>
+      </nav>
+      <a class="cta" id="cta" href="#" target="_blank" rel="noopener sponsored">Claim free BTC</a>
+    </div>
+
+    <div class="hero">
+      <div class="pill">Top earning • Daily updating</div>
+      <h1>Best ways to earn <em>Free Crypto</em> every day!</h1>
+      <p>Claim free crypto once a day on every faucet and win up to $300 per claim.</p>
+      <div class="perks">
+        <span><b>★</b> Top Paying Faucets</span>
+        <span><b>🎁</b> 1 Free Claim per Day</span>
+        <span><b>🛡</b> Legit Websites</span>
+      </div>
+    </div>
+
+    <div class="featured" id="featured"></div>
+  </div>
+</div>
+
+<main class="wrap list">
+  <section id="freesites">
+    <div class="sec-title"><h2>FreeSites Network</h2><span id="count"></span></div>
+    <div class="grid" id="grid"></div>
+  </section>
+
+  <section class="how" id="how">
+    <h2>Claim Daily &amp; <em>Win up to $300!</em></h2>
+    <p>Same simple routine on every site of the network.</p>
+    <div class="steps">
+      <div class="step"><b><span>1.</span> Pick a faucet</b><p>Hit “Earn now” to open the sign-up page.</p></div>
+      <div class="step"><b><span>2.</span> Create your account</b><p>Just an email and a password. Use a different password on each site.</p></div>
+      <div class="step"><b><span>3.</span> Claim every day</b><p>Come back once a day on each site to roll your free claim.</p></div>
+      <div class="step"><b><span>4.</span> Withdraw</b><p>Reach the minimum and withdraw to your crypto wallet.</p></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Links on this page are referral links: signing up through them costs you nothing and helps keep this site alive.</p>
+    <p>Up to $300 is the maximum prize per claim, not an average. Never gamble money you can't afford to lose.</p>
+  </div>
+</footer>
+
+<script>
+// To add a faucet: add one line to this list.
+const SITES = [
+  { name:"FreeBitcoin",  coin:"BTC",  icon:"btc",   color:"#f7931a", url:"https://freebitcoin.io/?ref=795166", tag:"TOP" },
+  { name:"FreeEthereum", coin:"ETH",  icon:"eth",   color:"#627eea", url:"https://freeethereum.com/?ref=425400", tag:"TOP" },
+  { name:"FreeBNB",      coin:"BNB",  icon:"bnb",   color:"#f3ba2f", url:"https://freebinancecoin.com/?ref=411855" },
+  { name:"CoinFaucet",   coin:"XRP",  icon:"xrp",   color:"#23292f", url:"https://coinfaucet.io/?ref=961985" },
+  { name:"FreeTron",     coin:"TRX",  icon:"trx",   color:"#e5232d", url:"https://free-tron.com/?ref=516456", tag:"HOT" },
+  { name:"FreeLTC",      coin:"LTC",  icon:"ltc",   color:"#345d9d", url:"https://free-ltc.com/?ref=274137" },
+  { name:"FreeDoge",     coin:"DOGE", icon:"doge",  color:"#c2a633", url:"https://free-doge.com/?ref=329610", tag:"TOP" },
+  { name:"FreeCryptom",  coin:"POL",  icon:"matic", color:"#8247e5", url:"https://freecryptom.com/?ref=143480" },
+  { name:"FreeShibaInu", coin:"SHIB", icon:"shib",  color:"#e44b17", url:"https://freeshibainu.com/?ref=200011", tag:"HOT" },
+  { name:"FreeCardano",  coin:"ADA",  icon:"ada",   color:"#0033ad", url:"https://freecardano.com/?ref=493002" },
+  { name:"FreeUSDCoin",  coin:"USDC", icon:"usdc",  color:"#2775ca", url:"https://freeusdcoin.com/?ref=234054" },
+  { name:"FreePancake",  coin:"CAKE", icon:"cake",  color:"#1fc7d4", url:"https://freepancake.com/?ref=61218" },
+  { name:"FreeDash",     coin:"DASH", icon:"dash",  color:"#008de4", url:"https://freedash.io/?ref=238729" },
+];
+const FEATURED = ["FreeBitcoin","FreeEthereum","FreeDoge"];
+
+const ICONS = "https://cdn.jsdelivr.net/npm/cryptocurrency-icons@0.18.1/svg/color/";
+const arrow = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M14 4h6v6M20 4l-9 9M18 14v6H4V6h6"/></svg>';
+const logo = (s) => `<img src="${ICONS}${s.icon}.svg" alt="${s.coin}" loading="lazy"
+  onerror="this.outerHTML='<span class=&quot;fb&quot; style=&quot;background:${s.color}&quot;>${s.coin}</span>'">`;
+const esc = (u) => u.replace(/"/g, "&quot;");
+
+document.getElementById("grid").innerHTML = SITES.map(s => `
+  <article class="card">
+    <div class="head">
+      ${logo(s)}
+      <div><h3>${s.name}</h3><small>Faucet &amp; Rewards</small></div>
+      <div class="tags">
+        ${s.tag ? `<span class="tag">${s.tag}</span>` : `<span class="tag purple">Daily</span>`}
+        <span class="tag light">Up to $300</span>
+      </div>
+    </div>
+    <div class="promo">🎁 Free ${s.coin} every day!</div>
+    <div class="hl">⏱ Claim 1 free roll every day</div>
+    <ul class="feats">
+      <li>Win up to $300 per claim</li>
+      <li>100% free – no deposit needed</li>
+    </ul>
+    <div class="foot">
+      <div><small>Withdraw to:</small><span class="wd">${logo(s)}${s.coin} wallet</span></div>
+      <a class="earn" href="${esc(s.url)}" target="_blank" rel="noopener sponsored">Earn now ${arrow}</a>
+    </div>
+  </article>`).join("");
+
+document.getElementById("featured").innerHTML = FEATURED.map(n => SITES.find(s => s.name === n)).map(s => `
+  <a class="feat" href="${esc(s.url)}" target="_blank" rel="noopener sponsored">
+    ${logo(s)}
+    <div><small>Daily faucet</small><h3>${s.name}</h3></div>
+    <span class="go">Claim free ${s.coin}</span>
+  </a>`).join("");
+
+document.getElementById("count").textContent = SITES.length + " faucets";
+document.getElementById("cta").href = SITES[0].url;
+</script>
+</body>
+</html>
